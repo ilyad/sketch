@@ -369,6 +369,10 @@ uint32_t eval(uint32_t index) {
       int num_args;
       if (!eval_args(cdr, args, &num_args)) return 0;
       uint32_t list = make_list(args, num_args);
+
+      /* here I don't know what to do:
+       *   the cells[] is 64 bits wide, but builtin_t is 32 on my machine
+       * Just to drop some bits? */
       builtin_t func = (builtin_t)cells[val+1];
 
       /* well, there you go */
