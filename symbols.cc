@@ -12,7 +12,7 @@ extern "C" void set_symbol(const char *name, int len, uint32_t val);
 
 tr1::unordered_map<string,uint32_t> table;
 
-string sym_name(const char* name, int len) {
+static string sym_name(const char* name, int len) {
   string str;
   str.assign(name, len);
   return str;
