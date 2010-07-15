@@ -366,7 +366,7 @@ uint32_t eval(uint32_t index) {
       if (TYPE(val) != T_FUNC) die("first element in list not a function");
       if ((cells[val] & BLTIN_MASK) == 0) die("can only call builtins for now");
 
-      uint32_t num_args;
+      int num_args;
       if (!eval_args(cdr, args, &num_args)) return 0;
       uint32_t list = make_list(args, num_args);
       builtin_t func = (builtin_t)cells[val+1];
