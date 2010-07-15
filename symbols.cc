@@ -2,6 +2,8 @@
 #include <string>
 #include <tr1/unordered_map>
 
+#include "symbols.h"
+
 using namespace std;
 
 /* returns 0 when not found */

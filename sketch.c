@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include <string.h>
 
+#include "symbols.h"
+
 void die(char *str) {
   fprintf(stderr, "dying: %s\n", str);
   exit(1);
