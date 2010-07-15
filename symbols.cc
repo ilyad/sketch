@@ -6,11 +6,9 @@
 
 using namespace std;
 
-/* returns 0 when not found */
-extern "C" uint32_t get_symbol(const char *name, int len);
-extern "C" void set_symbol(const char *name, int len, uint32_t val);
+typedef tr1::unordered_map<string,uint32_t> table_t;
 
-tr1::unordered_map<string,uint32_t> table;
+static table_t table;
 
 static string sym_name(const char* name, int len) {
   string str;
@@ -20,9 +18,8 @@ static string sym_name(const char* name, int len) {
 
 uint32_t get_symbol(const char *name, int len) {
   string str = sym_name(name, len);
-  if (table.find(str) != table.end())
-    return table[str];
-  else return 0;
+  table_t::const_iterator it = table.find(str);
+  return it == table.end() ? 0 : it->second;
 }
 
 void set_symbol(const char *name, int len, uint32_t val) {

@@ -9,7 +9,9 @@
 # define extern_C
 #endif
 
+/* returns 0 when not found */
 extern_C uint32_t get_symbol(const char *name, int len);
+
 extern_C void set_symbol(const char *name, int len, uint32_t val);
 
 #endif
